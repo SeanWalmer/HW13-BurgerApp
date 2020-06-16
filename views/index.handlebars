@@ -1,12 +1,59 @@
-<h1>Eat-Da-Burger!</h1>
-<div>
-  <div>
-    <h2>Burgers</h2>
-    <ul>
-      {{#each burgers}}
-          <li>
-            {{this.burger_name}}
-          </li>
-      {{/each}}
-    </ul>
-  </div>
+<div class="container">
+    <div class="row center">
+        <h1 class="center">Eat-Da-Burger!</h1>
+        <img src="img/pixel-burger.png" alt="pixleart burger" width="100" height="100">
+    </div>
+    <div class="row">
+        <div class="col s6 center">
+            <h3>Avalible burgers!</h3>
+            <ul><br>
+                {{#each burgers}}
+                {{#unless this.devoured}}
+                <li>
+                    {{this.burger_name}}<button data-id="{{id}}" class="delete"> eat</button>
+                </li><br>
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+
+        <div class="col s6 center">
+            <h3>You ate these!</h3>
+            <ul><br>
+                {{#each burgers}}
+                {{#if this.devoured}}
+                <li>
+                    {{this.burger_name}}
+                </li><br>
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+
+    <div class="row center">
+        <form class="create-form">
+            <div class="form-group">
+                <label class="black-text">Add a burger!</label><br>
+                <input type="text white" id="newBurger">
+            </div>
+            <button class="add">Submit</button>
+        </form>
+    </div>
+
+    {{!-- <form class="create-form">
+
+        <div class="form-group">
+            <label for="ca">Cat Name:</label>
+            <input type="text" id="ca" name="name">
+        </div>
+
+        <div class="form-group">
+            <label for="slee">Sleepy?</label><br>
+            <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
+            <input type="radio" name="sleepy" value="0"> Awake
+        </div>
+
+        <button type="submit">Add Cat</button>
+    </form> --}}
+</div>

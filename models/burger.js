@@ -1,7 +1,7 @@
 const orm = require(`../config/orm`);
 
 const burger = {
-    selectAllBurgers: function(cb){ 
+    allBurgers: function(cb){ 
         orm.selectAll(function(res){
             cb(res);
         });
@@ -11,8 +11,8 @@ const burger = {
             cb(res);
         });
     },
-    eatBurger: function(name){
-        orm.updateOne(name, true, function(res){
+    eatBurger: function(id, cb){
+        orm.updateOne(id, true, function(res){
             cb(res, cb);
         });
     }
