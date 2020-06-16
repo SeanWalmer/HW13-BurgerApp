@@ -1,4 +1,5 @@
 $(function () {
+    // move burger to devoured coulmn by changing devoured status
     $(".delete").on("click", function (event) {
         console.log("something happened...")
         event.preventDefault();
@@ -8,12 +9,11 @@ $(function () {
         }).then(
             function () {
                 console.log("deleted burger at id", id);
-                // Reload the page to get the updated list
                 location.reload();
             }
         );
     });
-
+    // add burger to list with a default false devoured
     $(".add").on("click", function (event) {
         event.preventDefault();
         console.log("this shoud have proced...")
@@ -24,8 +24,6 @@ $(function () {
         }).then(
             function () {
                 console.log("added " + burger);
-                // Reload the page to get the updated list
-                
                 location.reload();
             }
         );

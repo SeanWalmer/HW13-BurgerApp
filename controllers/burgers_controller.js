@@ -20,7 +20,7 @@ router.post(`/api/add-burger/:burger`, function(req, res){
         res.json({ id: result.insertId });
     });
 });
-
+// handles changing the status of a selected burger to true
 router.post(`/api/remove-burger/:id`, function(req, res){
     burger.eatBurger(req.params.id, function (result) {
         res.json({ id: result.insertId });
